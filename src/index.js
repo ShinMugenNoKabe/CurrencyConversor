@@ -28,14 +28,14 @@ app.get("/currencies/:fromCurrencyIsoCode/:toCurrencyIsoCodes?",
                 for (const toCurrencyIsoCode of toCurrencyIsoCodes.split(",")) {
                     const toCurrencyIsoCodeTrimmed = toCurrencyIsoCode.trim();
         
-                    conversionRates[toCurrencyIsoCodeTrimmed] = currencyUtils.changeCurrency(
-                        1, fromCurrencyIsoCode, toCurrencyIsoCodeTrimmed
+                    conversionRates[toCurrencyIsoCodeTrimmed] = currencyUtils.getConversionRate(
+                        fromCurrencyIsoCode, toCurrencyIsoCodeTrimmed
                     );
                 }
             } else {
                 Object.keys(req.currencyUtils.currencies).forEach(currencyIsoCode => {
-                    conversionRates[currencyIsoCode] = currencyUtils.changeCurrency(
-                        1, fromCurrencyIsoCode, currencyIsoCode
+                    conversionRates[currencyIsoCode] = currencyUtils.getConversionRate(
+                        fromCurrencyIsoCode, currencyIsoCode
                     );
                 });
             }

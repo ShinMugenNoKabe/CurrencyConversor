@@ -26,6 +26,12 @@ export default class CurrenciesUtils {
         return (currency * this.getConversionRate(fromCurrencyIsoCode, toCurrencyIsoCode));
     }
     
+    /**
+     * @description Calculates and returns the conversion rate between two currencies.
+     * @param {*} fromCurrencyIsoCode The original's currency ISO code
+     * @param {*} toCurrencyIsoCode The 
+     * @returns The conversion rate between the Original and 
+     */
     getConversionRate = (fromCurrencyIsoCode, toCurrencyIsoCode) => {
         const fromCurrencyConversionRate = this.currencies[fromCurrencyIsoCode];
         const toCurrencyConversionRate = this.currencies[toCurrencyIsoCode];
